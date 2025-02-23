@@ -1,0 +1,16 @@
+{
+    "name": "SERVICE_WORKER_SELF_DESTRUCT",
+    "short_name": "SW_SUICIDE",
+    "start_url": "/?sw_version=suicide_v1&timestamp=",
+    "display": "standalone",
+    "background_color": "#ff0000",
+    "theme_color": "#ff0000",
+    "icons": [
+      {
+        "src": "/sw-self-destruct-icon.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }

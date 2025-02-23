@@ -18,6 +18,25 @@
         }
         window.dataLayer = window.dataLayer || [], a("js", new Date), a("config", "UA-137340638-1");
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(registrations => {
+            registrations.forEach(registration => {
+              registration.unregister()
+                .then(success => {
+                  console.log(`SW注销${success ? '成功' : '失败'}:`, registration.scope);
+                });
+            });
+            return caches.keys().then(keys => {
+              return Promise.all(keys.map(key => caches.delete(key)));
+            });
+          }).catch(err => {
+            console.error('SW注销异常:', err);
+          });
+        }
+      });
+      </script>
 </head>
 
 <body>
